@@ -19,11 +19,11 @@ mapModule.init(displayer);
 //Position
 posCardModule.init(displayer,xCom);
 //manual
-motionCardModule.init(displayer,xCom);
+//motionCardModule.init(displayer,xCom);
 //Goto
-gotoCardModule.init(displayer,xCom);
+//gotoCardModule.init(displayer,xCom);
 //Checks
-checkCardModule.init(displayer,xCom);
+//checkCardModule.init(displayer,xCom);
 //parameters
 paramCardModule.init(displayer,xCom);
 //logger
@@ -66,7 +66,7 @@ readyPromise.then(()=>{
 });
 //checks
 readyPromise.then(()=>{
-	checkCardModule.registerCommands();
+	//checkCardModule.registerCommands();
 });
 //parameters
 readyPromise.then(()=>{
@@ -78,6 +78,6 @@ readyPromise.then(()=>{
 });
 //launch periodics
 readyPromise.then(()=>{
-	setTimeout(()=>xCom.send(["START"],"summerbot"),500);
+	//setTimeout(()=>xCom.send(["START"],"summerbot"),500);
 	setTimeout(()=>xCom.send(["+POS"],"summerbot"),2000);
 });

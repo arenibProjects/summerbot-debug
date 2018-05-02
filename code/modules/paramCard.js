@@ -15,10 +15,9 @@ exports.init=function(displayer,xCom){
   var row = new displayer.Row();
   exports.card.addChild(row);
 	exports.buttons=[
-    ["make Green",["SSIDE","0"]],
-    ["make Orange",["SSIDE","1"]],
-    ["Start",["START"]],
-    ["change strat.",["CSTRAT"]],
+    ["Force Green",["SSIDE","0"]],
+    ["Force Orange",["SSIDE","1"]],
+    ["Start",["START"]]
   ].map(d=>{
     var col = new displayer.Col(12,12,12);
     var button = new displayer.Button();
