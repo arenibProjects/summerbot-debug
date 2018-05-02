@@ -67,10 +67,10 @@ displayer.Text = class Text extends displayer.Frame{
 	addChild(){}
 	removeChild(){}
 	get text(){
-		return this.element.textContent;
+		return this.element.innerHTML;
 	}
 	set text(t){
-		this.element.textContent=t;
+		this.element.innerHTML=t;
 	}
 }
 displayer.Title = class Title extends displayer.Frame{

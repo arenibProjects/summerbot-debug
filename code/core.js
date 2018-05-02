@@ -7,6 +7,7 @@ var gotoCardModule = require("./modules/gotoCard");
 var motionCardModule = require("./modules/motionCard");
 var checkCardModule = require("./modules/checkCard");
 var paramCardModule = require("./modules/paramCard");
+var loggerCardModule = require("./modules/loggerCard");
 
 var xCom = new XCom.XCom();
 
@@ -25,7 +26,9 @@ gotoCardModule.init(displayer,xCom);
 checkCardModule.init(displayer,xCom);
 //parameters
 paramCardModule.init(displayer,xCom);
-for(let e of displayer.mainFrame.children) e.element.style.height ="300px"; //ugly hack to correct an uglier bug
+//logger
+loggerCardModule.init(displayer,xCom);
+//for(let e of displayer.mainFrame.children) e.element.style.height ="300px"; //ugly hack to correct an uglier bug
 
 // ===== EVENTS ===== //
 var readyPromise = Promise.all([xCom.whenConOpen("summerbot")]);
@@ -69,7 +72,12 @@ readyPromise.then(()=>{
 readyPromise.then(()=>{
   paramCardModule.registerCommands();
 });
+//logger
+readyPromise.then(()=>{
+  loggerCardModule.registerCommands();
+});
 //launch periodics
 readyPromise.then(()=>{
-	xCom.send(["+POS"],"summerbot");
+	setTimeout(()=>xCom.send(["START"],"summerbot"),500);
+	setTimeout(()=>xCom.send(["+POS"],"summerbot"),2000);
 });

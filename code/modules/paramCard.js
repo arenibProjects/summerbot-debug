@@ -23,7 +23,7 @@ exports.init=function(displayer,xCom){
     var col = new displayer.Col(12,12,12);
     var button = new displayer.Button();
     button.text = d[0];
-    button.action = ()=>{xCom.send(d[1],"summerbot");};
+    button.action = ()=>{exports.xCom.send(d[1],"summerbot");};
     col.addChild(button);
     return [col,button];
   });
@@ -36,6 +36,6 @@ exports.registerCommands = function(){
   exports.xCom.addCommand("STRAT",(com,con)=>{
 		exports.stratText.text = "Strat ID: "+com[1];
 	});
-  xCom.send(["GSIDE"],"summerbot");
-  xCom.send(["GSTRAT"],"summerbot");
+  setTimeout(()=>exports.xCom.send(["GSIDE"],"summerbot"),1000);
+  setTimeout(()=>exports.xCom.send(["GSTRAT"],"summerbot"),1500);
 }

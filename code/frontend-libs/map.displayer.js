@@ -12,14 +12,15 @@ displayer.map.Map = class Map extends displayer.Frame{
 		this.bg = new Image();
 		this.bg.src = "images/map.jpg";
 		this.canvas = document.createElement("CANVAS");
-		this.canvas.width=960;
-		this.canvas.height=640;
+		this.canvas.width=640;
+		this.canvas.height=960;
 		this.canvas.style.width="100%";
 		this.canvas.style.display="block";
 		this.element.appendChild(this.canvas);
 		this.ctx = this.canvas.getContext("2d");
 		this.ctx.globalCompositeOperation = "screen";
-		this.ctx.scale(960/3000, 960/3000);
+		this.ctx.scale(960/3000, -960/3000);
+		this.ctx.translate(0, -3000);
 		this.bg.onload = function(){
 			that.update();
 		}
@@ -29,8 +30,8 @@ displayer.map.Map = class Map extends displayer.Frame{
 	
 	update(){
 		if(typeof this.ctx !== "undefined" && typeof this.bg !== "undefined"){
-			this.ctx.clearRect(0,0,3000,2000);
-			this.ctx.drawImage(this.bg,0,0,3000,2000);
+			this.ctx.clearRect(0,0,2000,3000);
+			this.ctx.drawImage(this.bg,0,0,2000,3000);
 			for(let object in this.objects) this.objects[object].draw(this.ctx);
 		}
 	}
